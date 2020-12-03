@@ -8,7 +8,7 @@ namespace Day3.Tests
 {
     public class Solver
     {
-        Day3.Map map = new Day3.Map(new string[] {
+        private readonly Day3.Map _map = new Day3.Map(new string[] {
             "..##.......",
             "#...#...#..",
             ".#....#..#.",
@@ -25,13 +25,13 @@ namespace Day3.Tests
         [Fact]
         public void TestPart1()
         {
-            Assert.Equal(7, Day3.Solver.Part1(map));
+            Assert.Equal(7, Day3.Solver.Part1(_map));
         }
 
         [Fact]
         public void TestPart2()
         {
-            Assert.Equal(336, Day3.Solver.Part2(map));
+            Assert.Equal(336, Day3.Solver.Part2(_map));
         }
     }
 }
