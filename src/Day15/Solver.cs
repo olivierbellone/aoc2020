@@ -35,9 +35,9 @@ namespace Day15
             foreach (int currentTurn in Enumerable.Range(numbers.Count, turn - numbers.Count))
             {
                 int lastNumber = numbers.Last();
-                (int secondLast, int last) turns = numberToTurns[lastNumber];
+                (int secondLastTurn, int lastTurn) = numberToTurns[lastNumber];
 
-                int number = turns.secondLast != -1 ? turns.last - turns.secondLast : 0;
+                int number = secondLastTurn != -1 ? lastTurn - secondLastTurn : 0;
 
                 if (!numberToTurns.ContainsKey(number))
                 {
@@ -45,8 +45,7 @@ namespace Day15
                 }
                 else
                 {
-                    int lastTurn = numberToTurns[number].Item2;
-                    numberToTurns[number] = (lastTurn, currentTurn);
+                    numberToTurns[number] = (numberToTurns[number].Item2, currentTurn);
                 }
                 numbers.Add(number);
             }
